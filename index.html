@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-OLp5QjkOkC1SW9FZDb8v2vP1Usmr18QmzZPjgYb2FjFI4eFZ1yXg3Kd5UIdM5Ez" crossorigin="anonymous"> -->
+
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading">
+            <h2 style="margin-left: 20px;">Shailabh Kothari</h2>
+            <p>contact details</p>
+        </div>
+        <!-- <div class="heading">
+            <p>contact details</p>
+        </div><br> -->
+        <div class="contactDetails">
+            <div class="contact">
+                <img src="./Images/phone.png" style="height: 20px; margin-left: 15px">
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="tel:+919870260065">+91 9870260065</a>
+            </div><br>
+            <div class="email_link">
+                <img src="./Images/mail-icon-free-vector.jpg" style="height: 45px;"/>
+                &nbsp; &nbsp; &nbsp; &nbsp;<a href="mailto:shailabh.kothari@card91.io">shailabh.kothari@card91.io</a>
+
+            </div><br><br>
+            <div class="profile">
+                <img src="./Images/linkedin.png" style="height: 20px; margin-left: 15px"/>
+                &nbsp; &nbsp; &nbsp; &nbsp;<a href="https://www.linkedin.com/in/shailabh-kothari-cfa-2a801a15">https://www.linkedin.com/in/shailabh-kothari-cfa-2a801a15</a>
+            </div><br><br>
+            <div class="link">
+                <img src="./Images/link.jpg" style="height: 20px; margin-left: 15px"/>
+                &nbsp; &nbsp; &nbsp; &nbsp;<a href="https://www.card91.io/">https://www.card91.io/</a>
+            </div><br><br>
+        </div>
+        <button id="saveContactBtn">Save Contact</button>
+    </div>
+
+    <script>
+        document.getElementById('saveContactBtn').addEventListener('click', function() {
+            var phoneNumber = '+919870260065'; 
+
+            if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+                window.location.href = 'sms:' + phoneNumber;
+            } else {
+                alert('Save contact functionality is not supported on this device.');
+            }
+        });
+    </script>
+</body>
+
+
+
+
+
+
+
