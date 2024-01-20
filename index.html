@@ -45,11 +45,14 @@
         document.getElementById('saveContactBtn').addEventListener('click', function() {
             var phoneNumber = '+919870260065'; 
 
-            if (navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)) {
-                window.location.href = 'sms:' + phoneNumber;
-            } else {
-                alert('Save contact functionality is not supported on this device.');
-            }
+                if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+                    window.location.href = 'sms:&body=' + encodeURIComponent(phoneNumber);
+                } else if (navigator.userAgent.match(/Android/i)) {
+                    window.location.href = 'sms:?body=' + encodeURIComponent(phoneNumber);
+                } else {
+                    alert('Save contact functionality is not supported on this device.');
+                }
+
         });
     </script>
 </body>
