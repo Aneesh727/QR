@@ -46,7 +46,7 @@
             var phoneNumber = '+919870260065'; 
 
             if (navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)) {
-                window.location.href = 'tel:' + phoneNumber;
+                window.location.href = 'sms:' + phoneNumber;
             } else {
                 alert('Save contact functionality is not supported on this device.');
             }
