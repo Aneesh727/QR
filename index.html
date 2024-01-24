@@ -44,31 +44,21 @@
 
     <script>
         document.getElementById('saveContactBtn').addEventListener('click', function() {
-            var phoneNumber = '+919870260065'; 
+    var phoneNumber = '+919870260065';
 
-            if (navigator.share) {
-        // Create a VCard string
-        var vCardData = 'BEGIN:VCARD\nVERSION:3.0\nFN:John Doe\nTEL:' + phoneNumber + '\nEND:VCARD';
+    // Create a VCard string
+    var vCardData = 'BEGIN:VCARD\nVERSION:3.0\nFN:John Doe\nTEL:' + phoneNumber + '\nEND:VCARD';
 
-        // Create a Blob with the VCard data
-        var vCardBlob = new Blob([vCardData], { type: 'text/vcard' });
-
-        // Create a file from the Blob
-        var vCardFile = new File([vCardBlob], 'contact.vcf', { type: 'text/vcard' });
-
-        // Share the contact using the share API
-        navigator.share({
-            files: [vCardFile],
-            title: 'Save Contact',
-            text: 'Save this contact',
+    // Attempt to copy VCard data to the clipboard
+    navigator.clipboard.writeText(vCardData)
+        .then(function() {
+            alert('Contact information copied to clipboard. Please paste it into your contacts.');
         })
-        .then(() => console.log('Contact shared successfully'))
-        .catch((error) => console.error('Error sharing contact:', error));
-    } else {
-        // Alert the user that the share API is not supported
-        alert('Save contact functionality is not supported on this device.');
-    }
+        .catch(function(err) {
+            console.error('Error copying to clipboard:', err);
+            alert('Error copying to clipboard. Please manually copy the contact information.');
         });
+});
     </script>
 </body>
 
