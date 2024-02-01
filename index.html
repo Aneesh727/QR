@@ -43,23 +43,18 @@
     </div>
 
     <script>
-        document.getElementById('saveContactBtn').addEventListener('click', function() {
-    var phoneNumber = '+919870260065';
+    document.getElementById('saveContactBtn').addEventListener('click', function() {
+        var phoneNumber = '+919870260065';
+        var contactName = 'John Doe';
 
-    // Create a VCard string
-    var vCardData = 'BEGIN:VCARD\nVERSION:3.0\nFN:John Doe\nTEL:' + phoneNumber + '\nEND:VCARD';
+        // Create a deep link for adding a contact (note: behavior may vary between devices)
+        var contactLink = 'tel:' + encodeURIComponent(phoneNumber) + '?name=' + encodeURIComponent(contactName);
 
-    // Attempt to copy VCard data to the clipboard
-    navigator.clipboard.writeText(vCardData)
-        .then(function() {
-            alert('Contact information copied to clipboard. Please paste it into your contacts.');
-        })
-        .catch(function(err) {
-            console.error('Error copying to clipboard:', err);
-            alert('Error copying to clipboard. Please manually copy the contact information.');
-        });
-});
-    </script>
+        // Open the contact app with prefilled information
+        window.location.href = contactLink;
+    });
+</script>
+
 </body>
 
 
