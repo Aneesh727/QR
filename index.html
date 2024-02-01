@@ -44,16 +44,17 @@
 
     <script>
     document.getElementById('saveContactBtn').addEventListener('click', function() {
-        var phoneNumber = '+917657966606';
-        var contactName = 'Abhijeet Singh Dhillon';
+        var phoneNumber = '+919870260065';
+        var contactName = 'John Doe';
 
-        // Create a deep link for opening the email app with prefilled contact information
-        var mailtoLink = 'mailto:?subject=Contact&body=Name:' + encodeURIComponent(contactName) + '%0APhone:' + encodeURIComponent(phoneNumber);
+        // Create an Android intent URL for adding a contact
+        var intentUrl = 'intent://addContact?name=' + encodeURIComponent(contactName) + '&phone=' + encodeURIComponent(phoneNumber) + '#Intent;scheme=contacts;action=android.intent.action.VIEW;end';
 
-        // Open the email app with prefilled information
-        window.location.href = mailtoLink;
+        // Attempt to open the intent URL
+        window.location.href = intentUrl;
     });
 </script>
+
 
 
 </body>
