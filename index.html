@@ -42,16 +42,16 @@
         <button id="saveContactBtn">Save Contact</button>
     </div>
 
-    <script>
+   <script>
     document.getElementById('saveContactBtn').addEventListener('click', function() {
-        var phoneNumber = '+919870260065';
-        var contactName = 'John Doe';
+        var phoneNumber = '+917657966606';
+        var contactName = 'Abhijeet Singh Dhillon';
 
-        // Create an Android intent URL for adding a contact
-        var intentUrl = 'intent://addContact?name=' + encodeURIComponent(contactName) + '&phone=' + encodeURIComponent(phoneNumber) + '#Intent;scheme=contacts;action=android.intent.action.VIEW;end';
+        // Create a tel: URI to initiate a phone call
+        var telUri = 'tel:' + encodeURIComponent(phoneNumber);
 
-        // Attempt to open the intent URL
-        window.location.href = intentUrl;
+        // Attempt to open the phone call
+        window.location.href = telUri;
     });
 </script>
 
