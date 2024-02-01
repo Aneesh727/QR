@@ -45,19 +45,19 @@
     <script>
     document.getElementById('saveContactBtn').addEventListener('click', function() {
         var phoneNumber = '+919317714277';
+        var contactName = 'Ritesh Vaid';
 
-        // Check if the user is using an iOS device
-        if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
-            // iOS: Open contact
-            window.location.href = 'contact:' + phoneNumber;
-        } else if (navigator.userAgent.match(/Android/i)) {
-            // Android: Open contact using intent
-            var intentUri = 'intent://send/' + phoneNumber + '#Intent;scheme=smsto;package=com.android.contacts;end';
-            window.location.href = intentUri;
-        } else {
-            // For other devices, display an alert
-            alert('Save contact functionality is not supported on this device.');
-        }
+        // Create a VCard string
+        var vCardData = 'BEGIN:VCARD\nVERSION:3.0\nFN:' + contactName + '\nTEL:' + phoneNumber + '\nEND:VCARD';
+
+        // Create a Blob from the VCard data
+        var blob = new Blob([vCardData], { type: 'text/vcard' });
+
+        // Create a download link for the VCard
+        var link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = 'contact.vcf';
+        link.click();
     });
 </script>
 </body>
