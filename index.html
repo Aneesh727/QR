@@ -44,16 +44,17 @@
 
     <script>
     document.getElementById('saveContactBtn').addEventListener('click', function() {
-        var phoneNumber = '+919870260065';
-        var contactName = 'John Doe';
+        var phoneNumber = '+917657966606';
+        var contactName = 'Abhijeet Singh Dhillon';
 
-        // Create a deep link for adding a contact (note: behavior may vary between devices)
-        var contactLink = 'tel:' + encodeURIComponent(phoneNumber) + '?name=' + encodeURIComponent(contactName);
+        // Create a deep link for opening the email app with prefilled contact information
+        var mailtoLink = 'mailto:?subject=Contact&body=Name:' + encodeURIComponent(contactName) + '%0APhone:' + encodeURIComponent(phoneNumber);
 
-        // Open the contact app with prefilled information
-        window.location.href = contactLink;
+        // Open the email app with prefilled information
+        window.location.href = mailtoLink;
     });
 </script>
+
 
 </body>
 
