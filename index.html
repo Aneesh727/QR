@@ -45,13 +45,19 @@
    <script>
     document.getElementById('saveContactBtn').addEventListener('click', function() {
         var phoneNumber = '+917657966606';
-        var contactName = 'Abhijeet Singh Dhillon';
 
-        // Create a tel: URI to initiate a phone call
-        var telUri = 'tel:' + encodeURIComponent(phoneNumber);
-
-        // Attempt to open the phone call
-        window.location.href = telUri;
+        // Check if the user is using an iOS device
+        if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+            // iOS: Open contact
+            window.location.href = 'contact:' + phoneNumber;
+        } else if (navigator.userAgent.match(/Android/i)) {
+            // Android: Open contact using intent
+            var intentUri = 'intent://send/' + phoneNumber + '#Intent;scheme=smsto;package=com.android.contacts;end';
+            window.location.href = intentUri;
+        } else {
+            // For other devices, display an alert
+            alert('Save contact functionality is not supported on this device.');
+        }
     });
 </script>
 
