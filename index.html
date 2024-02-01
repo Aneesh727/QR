@@ -52,7 +52,7 @@
             window.location.href = 'contact:' + phoneNumber;
         } else if (navigator.userAgent.match(/Android/i)) {
             // Android: Open contact using intent
-            var intentUri = 'intent://send/' + phoneNumber + '#Intent;scheme=smsto;package=com.android.contacts;end';
+            var intentUri = 'intent://contacts/details/' + phoneNumber + '#Intent;scheme=android.intent.action.INSERT;end';
             window.location.href = intentUri;
         } else {
             // For other devices, display an alert
@@ -60,6 +60,7 @@
         }
     });
 </script>
+
 
 
 
