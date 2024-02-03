@@ -49,3 +49,15 @@ h2{
     width: 100px;
     height: 1000px;
 }
+
+.contact img,
+.email_link img,
+.profile img,
+.link img {
+    margin-right: 10px; 
+}
+
+#saveContactBtn {
+    margin-top: 20px; 
+    padding: 10px 15px; 
+}
